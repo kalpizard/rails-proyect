@@ -1,5 +1,5 @@
 class ContactController < ApplicationController
-    def contact_us
+    def contact
         
     end
 end
