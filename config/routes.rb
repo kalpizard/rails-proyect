@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   devise_for :user
   get "/skills", to: "skills#index"
   get "/contact", to: "contact#contact_us"
-  get "/projects", to: "proyects#projects"
+  get "/projects", to: "projects#projects"
+  get "/about", to: "about#about"
 
   namespace :admins do 
     get "/skills", to: "skills#index"
