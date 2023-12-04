@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  proyect_name: MyString
+  project_date_start: 2023-12-04
+  project_date_start: 2023-12-04
+  project: MyText
+
+two:
+  proyect_name: MyString
+  project_date_start: 2023-12-04
+  project_date_start: 2023-12-04
+  project: MyText

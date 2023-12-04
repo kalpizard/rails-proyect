@@ -10,7 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_27_235141) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_04_152134) do
+  create_table "animals", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contact_types", force: :cascade do |t|
+    t.string "contact_type_desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "contact_name"
+    t.string "contact_email"
+    t.string "contact_message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "proyects", force: :cascade do |t|
+    t.string "proyect_name"
+    t.date "project_date_start"
+    t.date "project_date_finish"
+    t.text "project"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skill_types", force: :cascade do |t|
+    t.text "skill_type_desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.integer "usrs_id", null: false
+    t.text "description"
+    t.string "skill_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["usrs_id"], name: "index_skills_on_usrs_id"
+  end
+
+  create_table "teches", force: :cascade do |t|
+    t.string "tech_desc"
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -23,4 +73,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_235141) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "usrs", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.string "photo", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "skills", "usrs", column: "usrs_id"
 end
